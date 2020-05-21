@@ -5,18 +5,18 @@ import java.util.Date;
 
 @Entity
 @Table(name = "WORKERS")
-public class Rabotnik {
+public class WorkerEntity {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "FIRSTNAME", length = 50, nullable = false)
-    private String firstname;
+    private String firstName;
 
     @Column(name = "LASTNAME" , length = 50, nullable = false)
-    private String lastname;
+    private String lastName;
 
     @Column(name="BIRTHDAY", nullable = false)
     @Temporal(value = TemporalType.DATE)
@@ -34,31 +34,31 @@ public class Rabotnik {
     @Column(name = "ADRESS")
     private String adress;
 
-    public Rabotnik() {
+    public WorkerEntity() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
     public void setFirstname(String firstname) {
-        this.firstname = firstname;
+        this.firstName = firstname;
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastname;
     }
 
     public Date getBirthday() {
@@ -99,5 +99,19 @@ public class Rabotnik {
 
     public void setAdress(String adress) {
         this.adress = adress;
+    }
+
+    @Override
+    public String toString() {
+        return "Rabotnik{" +
+                "id=" + id +
+                ", firstname='" + firstName + '\'' +
+                ", lastname='" + lastName + '\'' +
+                ", birthday=" + birthday +
+                ", age=" + age +
+                ", position='" + position + '\'' +
+                ", udalenkaornot=" + udalenkaornot +
+                ", adress='" + adress + '\'' +
+                '}';
     }
 }
